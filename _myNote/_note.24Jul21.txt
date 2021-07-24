@@ -1,0 +1,15 @@
+Note : 24Jul21 SAT
+
+- Correcting the Maven structure
+  Problem: we created the java project & convert to Maven.
+  
+  But, Maven expect structure of "src/test/java"
+  
+  So, to fix it, create the src/test/java.
+  
+   New -> Source Folder -> "src/test/java"
+     [X] Update exclusions....
+     
+     Then, move all package from src
+     
+        
