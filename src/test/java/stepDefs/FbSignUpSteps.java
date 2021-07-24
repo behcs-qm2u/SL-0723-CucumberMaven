@@ -120,7 +120,7 @@ public class FbSignUpSteps {
 	    @And("^User creates the new account$")
 	    public void user_creates_the_new_account(DataTable table) throws Throwable {
 
-	    	System.out.println("======== FirstName is " + table.cell(1, 1));
+	    	System.out.println("FirstName is " + table.cell(1, 1));
 	    	System.out.println("SureName is " + table.cell(2, 1));
 	    	System.out.println("MobileNumber is " + table.cell(3, 1));
 	    	System.out.println("Password is " + table.cell(4, 1));
