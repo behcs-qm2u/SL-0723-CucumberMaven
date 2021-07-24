@@ -12,4 +12,7 @@ Note : 24Jul21 SAT
      
      Then, move all package from src
      
-        
+  *** FOR MAVEN **
+  - all runner class must have the keyword of "test"
+   - eg. TestRunner.java
+   

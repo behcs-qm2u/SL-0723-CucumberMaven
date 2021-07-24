@@ -87,8 +87,32 @@ public class FbSignUpSteps {
 	    	
 	    	
 	    }
+
+	    @And("^User selects$")
+	    public void user_selects(DataTable table) throws Throwable {
+
+	        //select DOB
+	        WebElement dob = driver.findElement(By.xpath("//select[@name='birthday_day']"));
+	        Select DOBday = new Select(dob);
+	        DOBday.selectByValue(table.cell(1, 1));
 	        
-	    @And("^User clicks on the Sign Up utton$")
+	        WebElement dom = driver.findElement(By.xpath("//select[@id ='month']"));
+	        Select DOBmon = new Select(dom);
+	        DOBmon.selectByVisibleText(table.cell(2, 1));
+	        
+	        WebElement doy = driver.findElement(By.xpath("//select[@name='birthday_year']"));
+	        Select DOByear = new Select(doy);
+	        DOByear.selectByValue(table.cell(3, 1));
+	        
+    	
+	    	
+	    }
+
+	    
+	    
+	    
+	    
+	    @And("^User clicks on the Sign Up button$")
 	    public void user_clicks_on_the_sign_up_utton() throws Throwable {
 	        
 	    }
@@ -96,10 +120,10 @@ public class FbSignUpSteps {
 	    @And("^User creates the new account$")
 	    public void user_creates_the_new_account(DataTable table) throws Throwable {
 
-	    	System.out.println("FirstName is " + table.cell(1, 1));
+	    	System.out.println("======== FirstName is " + table.cell(1, 1));
 	    	System.out.println("SureName is " + table.cell(2, 1));
-	    	System.out.println("MobileNumber is " + table.cell(2, 1));
-	    	System.out.println("Password is " + table.cell(2, 1));
+	    	System.out.println("MobileNumber is " + table.cell(3, 1));
+	    	System.out.println("Password is " + table.cell(4, 1));
 	    	
 	    	// user_enters_and_(table.cell(1, 1), table.cell(2, 1), table.cell(3, 1), table.cell(4, 1));
 
@@ -115,9 +139,7 @@ public class FbSignUpSteps {
 	        WebElement tbPassword = driver.findElement(By.xpath("//input[@name ='reg_passwd__'] "));
 	        tbPassword.sendKeys(table.cell(4, 1));	    	
 	    	
-	        user_selects_and_(table.cell(5, 1), table.cell(6, 1), table.cell(7, 1));
-	        
-	        
+        
 	    }
 	    
 	    

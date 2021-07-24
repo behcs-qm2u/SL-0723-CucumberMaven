@@ -69,6 +69,24 @@ formatter.step({
         "Password",
         "abc@abc123"
       ]
+    }
+  ],
+  "keyword": "And "
+});
+formatter.match({
+  "location": "FbSignUpSteps.user_creates_the_new_account(DataTable)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User selects",
+  "rows": [
+    {
+      "cells": [
+        "Field",
+        "Value"
+      ]
     },
     {
       "cells": [
@@ -92,13 +110,13 @@ formatter.step({
   "keyword": "And "
 });
 formatter.match({
-  "location": "FbSignUpSteps.user_creates_the_new_account(DataTable)"
+  "location": "FbSignUpSteps.user_selects(DataTable)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User clicks on the Sign Up utton",
+  "name": "User clicks on the Sign Up button",
   "keyword": "And "
 });
 formatter.match({

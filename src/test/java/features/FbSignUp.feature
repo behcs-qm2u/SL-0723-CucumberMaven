@@ -5,7 +5,7 @@ Feature: Facebook sign up feature
     When User clicks on the Create New Account button
     And User enters '<FirstName>' '<LastName>' '<MobileNum>' and '<Password>'
     And User Selects '<Day>' '<Month>' and '<Year>'
-    And User clicks on the Sign Up utton
+    And User clicks on the Sign Up button
     Then User should be able to see the success message
 
     Examples: 
@@ -22,9 +22,10 @@ Feature: Facebook sign up feature
       | LastName  | Sharma     |
       | MobileNum |   12345678 |
       | Password  | abc@abc123 |
-      | Day				| 8 				 |
-      | Month     | Aug        |
-			| Year      | 1990       |
-                  
-    And User clicks on the Sign Up utton
+    And User selects
+      | Field | Value |
+      | Day   |     8 |
+      | Month | Aug   |
+      | Year  |  1990 |
+    And User clicks on the Sign Up button
     Then User should be able to see the success message

@@ -1,5 +1,6 @@
+stepDefs/CalculatorSteps.class
 stepDefs/TestRunner.class
 stepDefs/CalStep2.class
-stepDefs/CalculatorSteps.class
 stepDefs/BaseClass.class
+stepDefs/FbSignUpSteps.class
 stepDefs/LoginSteps.class
