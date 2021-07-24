@@ -14,8 +14,8 @@ import io.cucumber.junit.CucumberOptions;
 		// plugin= {"pretty", "html:target/cucumber-html"},
 		plugin= {"pretty", "html:target/cucumber-html", "json:target/cucumber.json"},
 		features = "src/test/java/features",
-		// tags = {"@NegativeLogin, @PositiveLogin" },
-		// tags = {"~@NegativeLogin", "@Sanity" },
+		// tags = {"@NegativeLogin, @PositiveLogin" },   // Logical AND
+		// tags = {"~@NegativeLogin", "@Sanity" },   // Logical OR
 		
 		tags = {"@DataTable"},
 		glue = {"stepDefs"}

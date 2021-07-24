@@ -1,6 +1,7 @@
 package stepDefs;
 
 import io.cucumber.java.en.Then;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
@@ -13,15 +14,27 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+
 
 public class FbSignUpSteps {
 	
 	   WebDriver driver = BaseClass.driver; 
-			   
+	   ExtentReports report = BaseClass.report;
+	   ExtentTest test = BaseClass.test;
+	   
+		
+	   
 	   @Given("^User opened the facebook application$")
 	    public void user_opened_the_facebook_application() throws Throwable {
+
+		    test = report.startTest("FB test");
+
 		   
 			driver.get("https://en-gb.facebook.com");
 			driver.manage().window().maximize();
@@ -30,10 +43,14 @@ public class FbSignUpSteps {
 			// Ensure FB application launched
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			try {
-				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@data-testid='open-registration-form-button']")));
+			
+				wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[@data-testid='open-registration-form-button']"))));
 				System.out.println("INFO: FB application opened!");
+			    test.log(LogStatus.INFO, "Successfully launched FB application");
 			} catch (Exception TimeOutException) {
 				System.out.println("ERROR: FB page not loaded properly!");
+			    test.log(LogStatus.ERROR, "Failed to launched FB application properly");
+			    
 			}
 			
 	        
@@ -44,7 +61,9 @@ public class FbSignUpSteps {
 	    	
 			WebElement NewAccount = driver.findElement(By.xpath("//a[@data-testid='open-registration-form-button']"));
 			NewAccount.click();
-	        
+		    test.log(LogStatus.INFO, "Clicked Create New Account");
+
+			
 	    }
 
 	    @And("^User enters '(.+)' '(.+)' '(.+)' and '(.+)'$")
@@ -61,6 +80,8 @@ public class FbSignUpSteps {
 	        
 	        WebElement pass = driver.findElement(By.xpath("//input[@name ='reg_passwd__'] "));
 	        pass.sendKeys(password);
+		    
+	        test.log(LogStatus.INFO, "Entered FirstName, LastName,  Mobile Number and Password");
 	        
 	    }
 
@@ -84,6 +105,7 @@ public class FbSignUpSteps {
 	        // WebElement Gender = driver.findElement(By.xpath("//input[@name='sex' and @value='2']"));
 	        // Gender.click();
 	    	
+	        test.log(LogStatus.INFO, "Selected DOB");
 	    	
 	    	
 	    }
@@ -105,6 +127,7 @@ public class FbSignUpSteps {
 	        DOByear.selectByValue(table.cell(3, 1));
 	        
     	
+	        test.log(LogStatus.INFO, "Selected DOB");
 	    	
 	    }
 
@@ -139,6 +162,7 @@ public class FbSignUpSteps {
 	        WebElement tbPassword = driver.findElement(By.xpath("//input[@name ='reg_passwd__'] "));
 	        tbPassword.sendKeys(table.cell(4, 1));	    	
 	    	
+	        test.log(LogStatus.INFO, "Entered FirstName, LastName,  Mobile Number and Password");
         
 	    }
 	    
